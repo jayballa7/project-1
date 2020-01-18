@@ -5,8 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+
+    <script src="Ranking.js"></script>
+    <title>Survival App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <script src="Ranking.js"></script>
+    <header>
+        <h1>Survival App</h1>
+    </header>
+    <div class="pure-g center">
+        <div class="pure-u-1 pure-u-md-1-2">
+            <div class="l-box">
+                <h2>Location</h2>
+                <div class = "map"></div>
+                <div class = "location-search">
+                    <form class="pure-form">
+                        <input type="text" class="pure-input-rounded">
+                        <button type="submit" class="pure-button">Search</button>
+                    </form>
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-4"> 
+            <div class="l-box">
+                <h2>Crime List</h2>
+                <div class = "list">
+                    <form class="pure-form">
+                        <input type="text" class="pure-input-rounded">
+                        <button type="submit" class="pure-button">Search</button>
+                    </form>
+                        <table class="pure-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Type</th>
+                                    <th>Incident</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                        
+                            <tbody>
+                                <tr class="pure-table-odd">
+                                    <td>1</td>
+                                    <td>Murder</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td>2</td>
+                                    <td>Assault</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                        
+                                <tr class="pure-table-odd">
+                                    <td>3</td>
+                                    <td>Rape</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td>4</td>
+                                    <td>...</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                        
+                                <tr class="pure-table-odd">
+                                    <td>5</td>
+                                    <td>...</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td>6</td>
+                                    <td>...</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                        
+                                <tr class="pure-table-odd">
+                                    <td>7</td>
+                                    <td>...</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td>8</td>
+                                    <td>...</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXueNr9V_cKThj6rtWzPr4kK-gBPLLk0k&callback=initMap"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
