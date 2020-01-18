@@ -1,31 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+
 body {
     min-height: 100vh;
-    height: 150vh;
+    height: 125vh;
     border: 2px solid black;
 }
 
-
-h1 {
-    padding: 2%;
-    border-bottom: 2px solid black;
+header {
+    border: 3px solid black;
+    background-color: #5c1102;
+    color: white;
     text-align: center;
+    font-family: 'Abel', sans-serif;
+    letter-spacing: 0.5em;
 }
-
 
 .pure-g > div {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    padding-top: 2%;
 }
 
 
 #map {
-    height: 400px;  /* The height is 400 pixels */
-    width: 400px;  /* The width is the width of the web page */
+    height: 400px; 
+    width: 400px;  
 }
 
 .center {
     justify-content: center;
+  }
+
+  .button-success,
+  .button-error {
+      color: white;
+      border-radius: 4px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .button-success {
+      background: rgb(28, 184, 65); 
+  }
+
+  .button-error {
+      background: rgb(202, 60, 60);
   }
 
 
