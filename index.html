@@ -1,134 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-
-    <script src="Ranking.js"></script>
-    <title>Survival App</title>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css"> -->
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foundation | Welcome</title>
+<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Survival App</h1>
-    </header>
-    <div class="pure-g center">
-        <div class="pure-u-1 pure-u-md-1-2">
-            <div class="l-box">
-                <h2>Location</h2>
-                <div class = "map"></div>
-                <div class = "location-search">
-                    <form class="pure-form">
-                        <input type="text" class="pure-input-rounded">
-                        <button type="submit" class="pure-button button-success">Search</button>
-                    </form>
-                    <div id="map"></div>
-                </div>
+
+<div class="top-bar">
+<div class="top-bar-left">
+<ul class="menu">
+<li class="menu-text">Project 1</li>
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+</ul>
+</div>
+<div class="top-bar-right">
+<ul class="menu">
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+</ul>
+</div>
+</div>
+
+<div class="callout large">
+<div class="row column text-center">
+<h1>Survival App</h1>
+<p class="lead">Crime Watch</p>
+</div>
+</div>
+    <div class="row">
+        <div class="medium-6 columns medium-push-6">
+            <h2 class = "font">Location of Crime</h2>
+            <div id ="map"></div>
+        <!--location search bar-->
+
+        <div class="hero-search-filter">
+            <div class="hero-search-filter-content">
+              <form class="hero-search-filter-form" action="">
+                <label for="findtext">Find</label>
+                <input id="findtext" class="hero-search-filter-form-find" type="text" />
+                <div class="divider">&nbsp;</div>
+                <label for="findlocate">Near</label>
+                <input id="findlocate" class="hero-search-filter-form-near" type="text" />
+                <button class="button"><i class="fa fa-search"></i>Search</button>
+              </form>
             </div>
+          </div>
+                  
         </div>
-        <div class="pure-u-1 pure-u-md-1-4"> 
-            <div class="l-box">
-                <h2>Crime List</h2>
-                <div class = "list">
-                    <form class="pure-form">
-                        <input type="text" class="pure-input-rounded">
-                        <button type="submit" class="pure-button button-error">Search</button>
-                    </form>
-                        <table class="pure-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Type</th>
-                                    <th>Incident</th>
-                                    <th>Location</th>
-                                </tr>
-                            </thead>
-                        
-                            <tbody>
-                                <tr class="pure-table-odd">
-                                    <td>1</td>
-                                    <td>Murder</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                        
-                                <tr>
-                                    <td>2</td>
-                                    <td>Assault</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                        
-                                <tr class="pure-table-odd">
-                                    <td>3</td>
-                                    <td>Rape</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                        
-                                <tr>
-                                    <td>4</td>
-                                    <td>...</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                        
-                                <tr class="pure-table-odd">
-                                    <td>5</td>
-                                    <td>...</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                        
-                                <tr>
-                                    <td>6</td>
-                                    <td>...</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                        
-                                <tr class="pure-table-odd">
-                                    <td>7</td>
-                                    <td>...</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                        
-                                <tr>
-                                    <td>8</td>
-                                    <td>...</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!--List-->
+        <div class="medium-6 columns medium-pull-6">
+            <h2 class = "font">Nearby Dangers</h2>
+            <table class="responsive-card-table unstriped">
+                <thead>
+                <tr class = "font">
+                    <th>Rank</th>
+                    <th>Crime Type</th>
+                    <th>Incident</th>
+                    <th>Location</th>
+                </tr>
+                </thead>
+            <tbody class = "font">
+                <tr>
+                     <td data-label="Rank">1</td>
+                    <td data-label="Crime Type"></td>
+                    <td data-label="Incident"></td>
+                    <td data-label="Location"></td>
+                </tr>
+                <tr>
+                    <td data-label="Rank">2</td>
+                    <td data-label="Crime Type"></td>
+                    <td data-label="Incident"></td>
+                    <td data-label="Location"></td>
+                </tr>
+                <tr>
+                    <td data-label="Rank">3</td>
+                    <td data-label="Crime Type"></td>
+                    <td data-label="Incident"></td>
+                    <td data-label="Location"></td>
+                </tr>
+                <tr>
+                    <td data-label="Rank">4</td>
+                    <td data-label="Crime Type"></td>
+                    <td data-label="Incident"></td>
+                    <td data-label="Location"></td>
+                </tr>
+                    <td data-label="Rank">5</td>
+                    <td data-label="Crime Type"></td>
+                    <td data-label="Incident"></td>
+                    <td data-label="Location"></td>
+                </tr>
+                    <td data-label="Rank">6</td>
+                    <td data-label="Crime Type"></td>
+                    <td data-label="Incident"></td>
+                    <td data-label="Location"></td>
+                </tr>
+                    <td data-label="Rank">7</td>
+                    <td data-label="Crime Type"></td>
+                    <td data-label="Incident"></td>
+                    <td data-label="Location"></td>
+                </tr>
+                    <td data-label="Rank">8</td>
+                    <td data-label="Crime Type"></td>
+                    <td data-label="Incident"></td>
+                    <td data-label="Location"></td>
+                </tbody>
+            </table>
+  
+  
+</div>
+</div>
+<hr>
+<div class="row column">
+<ul class="vertical medium-horizontal menu expanded text-center">
+<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
+<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
+<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
+<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
+<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
+</ul>
+</div>
+<hr>
+<div class="row column">
+<h3>Articles</h3>
+</div>
+<div class="row medium-up-3 large-up-4">
+<div class="column">
+<img class="thumbnail" src="https://placehold.it/550x550">
+</div>
+<div class="column">
+<img class="thumbnail" src="https://placehold.it/550x550">
+</div>
+<div class="column">
+<img class="thumbnail" src="https://placehold.it/550x550">
+</div>
+</div>
+</div>
+<hr>
+<div class="row column">
+<ul class="menu">
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+</ul>
+</div>
 
-
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXueNr9V_cKThj6rtWzPr4kK-gBPLLk0k&callback=initMap"></script>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
 </body>
 </html>
-
-
-
-
-    <!--<div class="header">
-        <div class="home-menu pure-menu pure-menu-horizontal">
-            <a class="pure-menu-heading" href="">Survival App</a>
-        </div>
-    </div> -->
 
