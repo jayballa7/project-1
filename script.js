@@ -47,7 +47,7 @@ async function fetchJson() {
 }
 
 function parseData(json) {
-  console.log(json);
+  console.log(json.crimes[0]);
 }
 
 
