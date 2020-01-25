@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Foundation | Welcome</title>
+<title>Survival App | Welcome</title>
 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -39,21 +39,11 @@
     <div class="row">
         <div class="medium-6 columns medium-push-6">
             <h2 class = "font">Location of Crime</h2>
-            <div id ="map"></div>
         <!--location search bar-->
 
-        <div class="hero-search-filter">
-            <div class="hero-search-filter-content">
-              <form class="hero-search-filter-form" action="">
-                <label for="findtext">Find</label>
-                <input id="findtext" class="hero-search-filter-form-find" type="text" />
-                <div class="divider">&nbsp;</div>
-                <label for="findlocate">Near</label>
-                <input id="findlocate" class="hero-search-filter-form-near" type="text" />
-                <button class="button"><i class="fa fa-search"></i>Search</button>
-              </form>
-            </div>
-          </div>
+        <input type = "text" id = "mapsearch">
+        <div id= "map-canvas"></div>
+        <!-- <button class="button"><i class="fa fa-search"></i>Search</button> -->
                   
         </div>
         <!--List-->
@@ -164,6 +154,7 @@
 </ul>
 </div>
 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXueNr9V_cKThj6rtWzPr4kK-gBPLLk0k&libraries=places"></script>
 <script src="script.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>

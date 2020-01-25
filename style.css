@@ -188,7 +188,7 @@ h1 {
 
 /*Map*/
 
-  #map {
-    height: 300px; 
-    width: 300px;  
+  #map-canvas {
+    height: 400px; 
+    width: 400px;  
 }

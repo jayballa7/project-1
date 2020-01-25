@@ -1,15 +1,32 @@
-$(document).foundation();
+var map = new google.maps.Map(document.getElementById("map-canvas"), {
+    center: {
+        lat: 27.72,
+        lng: 85.36
+    },
+    zoom: 15
+});
 
+var marker = new google.maps.Marker({
+    position: {
+        lat: 27.72,
+        lng: 85.36
+    },
+    map:map,
+    draggable: true
+});
 
-// Initialize and add the map
-function initMap() {
-    // The location of Uluru
-    var uluru = {lat: 46.6062, lng: -122.3321};
-    // The map, centered at Uluru
-    var map = new google.maps.Map(
-    document.getElementById("map"), {zoom: 4, center: uluru});
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: uluru, map: map});
-}
+var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsearch"));
 
-initMap();
+google.maps.event.addListener(searchBox, "places_changed", function() {
+    var places = searchBox.getPlaces();
+    var bounds = new google.maps.LatLngBounds();
+    var i, place;
+    
+    for(i = 0; place = places[i]; i++) {
+        console.log(place.geometry.location);
+        bounds.extend(place.geometry.location);
+        marker.setPosition(place.geometry.location);
+    }
+    map.fitBounds(bounds);
+    map.setZoom(15);
+});
