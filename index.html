@@ -43,7 +43,7 @@
         </div>
         <!--List-->
         <div class="medium-6 columns medium-pull-6">
-            <h2 class = "font">Nearby Dangers</h2>
+            <h2 class = "font">Nearby Crimes</h2>
             <table class="responsive-card-table unstriped">
                 <thead>
                 <tr class = "font">
@@ -51,10 +51,11 @@
                     <th>Crime Type</th>
                     <th>Incident</th>
                     <th>Location</th>
+                    <th>More Information</th>
                 </tr>
                 </thead>
-            <tbody class = "font">
-                <tr>
+            <tbody class = "font" id="crime-list">
+                <!-- <tr>
                      <td data-label="Rank">1</td>
                     <td data-label="Crime Type"></td>
                     <td data-label="Incident"></td>
@@ -102,11 +103,11 @@
                     <td data-label="Crime Type"></td>
                     <td data-label="Incident"></td>
                     <td data-label="Location"></td>
-                </tr>
-                <td data-label="Rank">10</td>
+                </tr> -->
+                <!-- <td data-label="Rank">10</td>
                 <td data-label="Crime Type"></td>
                 <td data-label="Incident"></td>
-                <td data-label="Location"></td>
+                <td data-label="Location"></td> -->
                 </tbody>
             </table>
   
@@ -115,41 +116,22 @@
 </div>
 <hr>
 <div class="row column">
-<ul class="vertical medium-horizontal menu expanded text-center">
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
+<ul class="vertical medium-horizontal menu expanded text-center" id="crimeStats">
+    <li><div class="shootingStat">0</div><span>Shooting</span></li>
+    <li><div class="assaultStat">0</div><span>Assault</span></li>
+    <li><div class="robberyStat">0</div><span>Robbery</span></li>
+    <li><div class="arsonStat">0</div><span>Arson</span></li>
+    <li><div class="burglaryStat">0</div><span>Burglary</span></li>
+    <li><div class="theftStat">0</div><span>Theft</span></li>
+    <li><div class="arrestStat">0</div><span>Arrest</span></li>
+    <li><div class="vandalismStat">0</div><span>Vandalism</span></li>
+    <li><div class="otherStat">0</div><span>Other</span></li>
 </ul>
 </div>
 <hr>
-<div class="row column">
-<h3>Articles</h3>
-</div>
-<div class="row medium-up-3 large-up-4">
-<div class="column">
-<img class="thumbnail" src="https://placehold.it/550x550">
-</div>
-<div class="column">
-<img class="thumbnail" src="https://placehold.it/550x550">
-</div>
-<div class="column">
-<img class="thumbnail" src="https://placehold.it/550x550">
-</div>
-</div>
-</div>
-<hr>
-<div class="row column">
-<ul class="menu">
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-</ul>
-</div>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXueNr9V_cKThj6rtWzPr4kK-gBPLLk0k&libraries=places"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="Ranking.js"></script>
 <script src="script.js"></script>
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
 </body>
