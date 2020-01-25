@@ -44,6 +44,11 @@
         <!--List-->
         <div class="medium-6 columns medium-pull-6">
             <h2 class = "font">Nearby Crimes</h2>
+            <div id="results">
+                <input id="input" type="number" step="5" min="0" max="50" value="20">
+                <button class="btn">Refresh</button>
+            </div>
+            
             <table class="responsive-card-table unstriped">
                 <thead>
                 <tr class = "font">
@@ -56,12 +61,21 @@
                 </thead>
             <tbody class = "font" id="crime-list">
                     
-                </tbody>
+            </tbody>
             </table>
+            <div>
+                <button id="prev">Prev</button>
+                <input id="page" type="number" value="0" min="0">
+                <button id="next">Next</button>
+            </div>
   
   
+        </div>
+        
+
 </div>
-</div>
+
+
 <hr>
 <div class="row column">
 <ul class="vertical medium-horizontal menu expanded text-center" id="crimeStats">
@@ -79,6 +93,7 @@
 <hr>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXueNr9V_cKThj6rtWzPr4kK-gBPLLk0k&libraries=places"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 <script src="Ranking.js"></script>
 <script src="script.js"></script>
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>

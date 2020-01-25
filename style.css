@@ -192,3 +192,20 @@ h1 {
     height: 300px; 
     width: 300px;  
 }
+
+#results {
+  width: 100px;
+  float: right;
+  
+}
+
+#input {
+  border-radius: 20px;
+}
+
+.btn {
+  background-color: 5c1102;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+}

@@ -1,12 +1,41 @@
 // ranks threats based on severity
 let crime_list = document.querySelector("#crime-list");
+let input = document.querySelector("#input");
+let inputBtn = document.querySelector(".btn");
+let prev = document.querySelector("#prev");
+let pageBtn = document.querySelector("#page");
+let next = document.querySelector("#next");
+
 let crimes = ['shooting', 'assault', 'robbery', 'arson', 'burglary', 'theft', 'arrest','vandalism', 'other'];
 let crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-let listLimit = 50;
+let listLimit = input.value;
 let page = 0;
+let dataCashe = [];
+
+inputBtn.addEventListener('click', function() {
+  listLimit = input.value;
+  console.log(input.value)
+  crime_list.innerHTML = '';
+  rankOffences(dataCashe);
+});
+
+prev.addEventListener('click', function() {
+    if(page > 0) {
+      page--;
+    }
+    crime_list.innerHTML = '';
+    rankOffences(dataCashe);
+})
+
+next.addEventListener('click', function() {
+    page++;
+    crime_list.innerHTML = '';
+    rankOffences(dataCashe);
+})
+
 function rankOffences(data) {
     let count = 0;
-    
+    dataCashe = data;
     for (var i = 0; i < crimes.length; i++) {
       
         
@@ -15,7 +44,7 @@ function rankOffences(data) {
                 if(data[j].type.toLowerCase() === crimes[i]) {
                     count++;
                     crimeCount[i]++;
-                    console.log(j);
+                  
                     let newRow = document.createElement("tr");
                     let number = document.createElement("td");
                     let type = document.createElement("td");
