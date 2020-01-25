@@ -27,9 +27,6 @@ async function fetchJson(newUrl) {
       'Access-Control-Allow-Headers':'application/json',
     },
     success: function(data) {
-      console.log(newUrl);
-      console.log("ranking!");
-      console.log(data);
       rankOffences(data.crimes);
     },
     error: function(error) {
@@ -89,7 +86,6 @@ google.maps.event.addListener(searchBox, "places_changed", function() {
       marker.setPosition(place.geometry.location);
       let temp = JSON.stringify(latlng);
       let coordsObj = JSON.parse(temp);
-      console.log(coordsObj);
       let lat1 = coordsObj.lat;
       let lon1 = coordsObj.lng;
 

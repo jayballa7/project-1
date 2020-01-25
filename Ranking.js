@@ -12,7 +12,6 @@ let page = 0;
 let dataCashe = [];
 inputBtn.addEventListener('click', function() {
   listLimit = input.value;
-  console.log(input.value)
   crime_list.innerHTML = '';
   rankOffences(dataCashe);
 });
@@ -50,6 +49,7 @@ function rankOffences(data) {
                     newRow.appendChild(city);
                     newRow.appendChild(link);
                     crime_list.appendChild(newRow);
+                    addMarker(data[j].lat, data[j].lon, data[j].type);
                 }
             }
             
