@@ -189,6 +189,60 @@ h1 {
 /*Map*/
 
   #map-canvas {
-    height: 300px; 
-    width: 300px;  
+    height: 500px; 
+    width: 500px;  
+}
+
+#mapsearch {
+  width: 40%;
+}
+#miles {
+  width: 28%;
+}
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+.form-inline button:hover {
+  background-color: royalblue;
+}
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+#results{
+  width: 100px;
+  float: right;
+}
+
+#input {
+  border-radius: 20px;
+}
+.btn {
+  background-color: 5c1102;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
 }

@@ -27,8 +27,8 @@
 <!--Heading-->
 <div class="callout large">
 <div class="row column text-center">
-<h1>Survival App</h1>
-<p class="lead">Crime Watch</p>
+<h1>Crime Radar</h1>
+<!-- <p class="lead">Crime Radar</p> -->
 </div>
 </div>
 <!--Map-->
@@ -36,7 +36,12 @@
         <div class="medium-6 columns medium-push-6">
             <h2 class = "font">Location of Crime</h2>
         <!--location search bar-->
-        <input type = "text" id = "mapsearch">
+
+        <form class="form-inline">
+            <input type="text" id="mapsearch" placeholder="Enter Location" name="location">
+            <input type="number" id="miles" placeholder="miles away" name="distance">
+        </form>
+
         <div id= "map-canvas"></div>
         <!-- <button class="button"><i class="fa fa-search"></i>Search</button> -->
                   
@@ -44,18 +49,24 @@
         <!--List-->
         <div class="medium-6 columns medium-pull-6">
             <h2 class = "font">Nearby Crimes</h2>
+
+            <div id="results">
+                <input id="input" type="number" step="5" min="0" max="50" value="20">
+                <button class="btn">Refresh</button>
+            </div>
+
             <table class="responsive-card-table unstriped">
                 <thead>
                 <tr class = "font">
-                    <th>Rank</th>
+                    <th>#</th>
                     <th>Crime Type</th>
-                    <th>Incident</th>
+                    <th>Date and Time</th>
                     <th>Location</th>
                     <th>More Information</th>
                 </tr>
                 </thead>
             <tbody class = "font" id="crime-list">
-                    
+
                 </tbody>
             </table>
   

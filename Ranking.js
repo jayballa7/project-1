@@ -1,12 +1,24 @@
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// ==========================================================================================================================================
 // ranks threats based on severity
 let crime_list = document.querySelector("#crime-list");
+let input = document.querySelector("#input");
+let inputBtn = document.querySelector(".btn");
 let crimes = ['shooting', 'assault', 'robbery', 'arson', 'burglary', 'theft', 'arrest','vandalism', 'other'];
 let crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-let listLimit = 50;
+let listLimit = input.value;
 let page = 0;
+let dataCashe = [];
+inputBtn.addEventListener('click', function() {
+  listLimit = input.value;
+  console.log(input.value)
+  crime_list.innerHTML = '';
+  rankOffences(dataCashe);
+});
 function rankOffences(data) {
     let count = 0;
-    
+    dataCashe = data;
     for (var i = 0; i < crimes.length; i++) {
       
         
@@ -15,7 +27,7 @@ function rankOffences(data) {
                 if(data[j].type.toLowerCase() === crimes[i]) {
                     count++;
                     crimeCount[i]++;
-                    console.log(j);
+                  
                     let newRow = document.createElement("tr");
                     let number = document.createElement("td");
                     let type = document.createElement("td");
@@ -46,7 +58,10 @@ function rankOffences(data) {
     }
     crimeStats();
 }
-
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+//updates the stats at the bottom of the page
 function crimeStats() {
   let list = document.getElementById("crimeStats");
   let elements = list.children;
@@ -58,4 +73,19 @@ function crimeStats() {
       elements[i].children[1].textContent = elements[i].children[1].textContent + "s";
     }
   }
+}
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// adds a marker of each crime to the map
+function addMarker(lat, lon, type) {
+  var marker = new google.maps.Marker({
+    position: {
+        lat: lat,
+        lng: lon
+    },
+    map:map,
+    draggable: false,
+    title: type
+  });
 }
