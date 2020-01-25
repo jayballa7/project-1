@@ -1,21 +1,12 @@
-// $(document).foundation();
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// This code fetches the JSON from the API
 
-
-// // Initialize and add the map
-// function initMap() {
-//     // The location of Uluru
-//     var uluru = {lat: 46.6062, lng: -122.3321};
-//     // The map, centered at Uluru
-//     var map = new google.maps.Map(
-//     document.getElementById("map"), {zoom: 4, center: uluru});
-//     // The marker, positioned at Uluru
-//     var marker = new google.maps.Marker({position: uluru, map: map});
-// }
-
-// initMap();
 const key = 'This-api-key-is-for-commercial-use-exclusively.Only-entities-with-a-Spotcrime-contract-May-use-this-key.Call-877.410.1607.';
-let lat = 40;
-let lon = -122;
+let lat = 26.74561038;
+//for the US, the longitude will always be negative
+let lon = -98.34960938;
 let radius = 10; // this is in miles
 
 
@@ -47,51 +38,35 @@ async function fetchJson() {
 }
 
 function parseData(json) {
-  console.log(json.crimes[0]);
+  console.log(json.crimes);
 }
 
+fetchJson();
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// This code should loap the map onto the page
 
 $(document).foundation();
 
 
 // Initialize and add the map
 
+// Initialize and add the map
 function initMap() {
-    //var uluru = {lat: position.coords.latitude, lng: position.coords.longitude};
-    var uluru;
-    infoWindow = new google.maps.InfoWindow;
-    console.log(window);
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-            lat: position.coords.latitude,
-            //lat: 46.6062,
-            lng: position.coords.longitude
-            //lng: -122.3321
-        };
-        uluru=pos;
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
-        infoWindow.open(map);
-        map.setCenter(pos);
-        }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
 
-    // The location of Uluru
-    //var uluru = {lat: 46.6062, lng: -122.3321};
-    // The map, centered at Uluru
-    var map = new google.maps.Map(
-    document.getElementById("map"), {zoom: 4, center: uluru});
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: uluru, map:map});
+  
+}
 
+initMap()
 
-   }
-
-
-fetchJson();
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// ==========================================================================================================================================
