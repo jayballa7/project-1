@@ -2,14 +2,15 @@
 // ==========================================================================================================================================
 // ==========================================================================================================================================
 // ranks threats based on severity
-let crime_list = document.querySelector("#crime-list");
+let crime_list = document.querySelector("#crime_list");
 let input = document.querySelector("#input");
 let inputBtn = document.querySelector(".btn");
 let prev = document.querySelector("#prev");
 let pageBtn = document.querySelector("#page");
 let next = document.querySelector("#next");
 
-let crimes = ['shooting', 'assault', 'robbery', 'arson', 'burglary', 'theft', 'arrest','vandalism', 'other'];
+// ranking variables
+let crimes = ['shooting', 'assault', 'robbery', 'arson', 'burglary', 'theft', 'arrest', 'vandalism', 'other'];
 let crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let listLimit = input.value;
 let page = 0;
@@ -19,11 +20,11 @@ pageBtn.value = page + 1;
 
 inputBtn.addEventListener('click', function() {
   listLimit = input.value;
-  console.log(input.value)
   crime_list.innerHTML = '';
   rankOffences(dataCashe);
 });
 
+// previous page button
 prev.addEventListener('click', function() {
     if(page > 0) {
       page--;
@@ -34,6 +35,7 @@ prev.addEventListener('click', function() {
     
 })
 
+// next page button
 next.addEventListener('click', function() {
     
     if (((page + 1) * listLimit) < dataCashe.length) {
@@ -46,6 +48,8 @@ next.addEventListener('click', function() {
 })
 
 function rankOffences(data) {
+  crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    crime_list.innerHTML = "";
     let count = 0;
     dataCashe = data;
     for (var i = 0; i < crimes.length; i++) {
@@ -86,6 +90,7 @@ function rankOffences(data) {
         }
         
     }
+    // updates the crime summary stats at the bottom of the page
     crimeStats();
 }
 // ==========================================================================================================================================
