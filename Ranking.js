@@ -15,6 +15,8 @@ let listLimit = input.value;
 let page = 0;
 let dataCashe = [];
 
+pageBtn.value = page + 1;
+
 inputBtn.addEventListener('click', function() {
   listLimit = input.value;
   console.log(input.value)
@@ -25,15 +27,22 @@ inputBtn.addEventListener('click', function() {
 prev.addEventListener('click', function() {
     if(page > 0) {
       page--;
+      pageBtn.value = page + 1;
+      crime_list.innerHTML = '';
+      rankOffences(dataCashe);
     }
-    crime_list.innerHTML = '';
-    rankOffences(dataCashe);
+    
 })
 
 next.addEventListener('click', function() {
-    page++;
-    crime_list.innerHTML = '';
-    rankOffences(dataCashe);
+    
+    if (((page + 1) * listLimit) < dataCashe.length) {
+        page++;
+        pageBtn.value = page + 1;
+        crime_list.innerHTML = '';
+        rankOffences(dataCashe);
+    }
+    
 })
 
 function rankOffences(data) {
@@ -90,7 +99,8 @@ function crimeStats() {
   for(let i = 0; i < crimeCount.length; i++) {
     let stat = crimeCount[i];
     elements[i].children[0].textContent = stat;
-    if(stat > 1) {
+    let charList = elements[i].children[1].textContent.split('');
+    if(stat > 1 && charList[charList.length - 1] != 's') {
       elements[i].children[1].textContent = elements[i].children[1].textContent + "s";
     }
   }
