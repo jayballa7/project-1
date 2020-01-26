@@ -85,6 +85,7 @@ function rankOffences(data) {
         }
         
     }
+    // updates the crime summary stats at the bottom of the page
     crimeStats();
 }
 // ==========================================================================================================================================

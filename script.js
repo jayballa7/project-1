@@ -84,15 +84,21 @@ google.maps.event.addListener(searchBox, "places_changed", function() {
       var latlng = place.geometry.location;
       bounds.extend(place.geometry.location);
       marker.setPosition(place.geometry.location);
+
+      // this gets the coordinates of the place in the search box
       let temp = JSON.stringify(latlng);
       let coordsObj = JSON.parse(temp);
       let lat1 = coordsObj.lat;
       let lon1 = coordsObj.lng;
 
+      // constructs url to fetch json
       let url = `https://api.spotcrime.com/crimes.json?&lat=${lat1}&lon=${lon1}&radius=${radius}&key=${key}`;
 
+      // removes previous markers
+      marker.setMap(null);
+
+      // start the whole process of fetching json, and moving map, adding markers, etc.
       fetchJson(url);
-      
   }
   map.fitBounds(bounds);
   map.setZoom(10);
