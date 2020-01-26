@@ -9,7 +9,7 @@ let prev = document.querySelector("#prev");
 let pageBtn = document.querySelector("#page");
 let next = document.querySelector("#next");
 
-let crimes = ['shooting', 'assault', 'robbery', 'arson', 'burglary', 'theft', 'arrest','vandalism', 'other'];
+let crimes = ['shooting', 'assault', 'robbery', 'arson', 'burglary', 'theft', 'arrest', 'vandalism', 'other'];
 let crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let listLimit = input.value;
 let page = 0;
@@ -17,7 +17,6 @@ let dataCashe = [];
 
 inputBtn.addEventListener('click', function() {
   listLimit = input.value;
-  console.log(input.value)
   crime_list.innerHTML = '';
   rankOffences(dataCashe);
 });
