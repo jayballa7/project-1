@@ -4,18 +4,16 @@
 // This code fetches the JSON from the API
 
 const key = 'This-api-key-is-for-commercial-use-exclusively.Only-entities-with-a-Spotcrime-contract-May-use-this-key.Call-877.410.1607.';
-let lat = 40;
+let lat;
 //for the US, the longitude will always be negative
-let lon = -122;
+let lon;
 let radius = 100; // this is in miles
 
 
-let url = `https://api.spotcrime.com/crimes.json?&lat=${lat}&lon=${lon}&radius=${radius}&key=${key}`;
-
-async function fetchJson() {
+async function fetchJson(newUrl) {
   $.ajax({
     type: 'GET',
-    url: url,
+    url: newUrl,
     contentType: 'application/json',
     dataType:'jsonp',
     responseType:'application/json',
@@ -38,7 +36,7 @@ async function fetchJson() {
 }
 
 //fetches the json, and updates the list
-fetchJson();
+// fetchJson();
 // ==========================================================================================================================================
 // ==========================================================================================================================================
 // ==========================================================================================================================================
@@ -46,19 +44,36 @@ fetchJson();
 
 var map = new google.maps.Map(document.getElementById("map-canvas"), {
   center: {
-      lat: 27.72,
-      lng: 85.36
+      lat: 40,
+      lng: -122
   },
-  zoom: 15
+  zoom: 5
 });
 var marker = new google.maps.Marker({
   position: {
-      lat: 27.72,
-      lng: 85.36
+      lat: lat,
+      lng: lon
   },
   map:map,
-  draggable: true
+  draggable: false,
+  icon: {
+    url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+  }
 });
+var cityCircle = new google.maps.Circle({
+  strokeColor: '#FF0000',
+  strokeOpacity: 1,
+  strokeWeight: 2,
+  fillColor: '#FF0000',
+  fillOpacity: 0.35,
+  map: map,
+  center: {
+    lat: lat,
+    lng: lon
+},
+  radius: 100000
+});
+
 var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsearch"));
 google.maps.event.addListener(searchBox, "places_changed", function() {
   var places = searchBox.getPlaces();
@@ -66,13 +81,27 @@ google.maps.event.addListener(searchBox, "places_changed", function() {
   var i, place;
   
   for(i = 0; place = places[i]; i++) {
-      console.log(place.geometry.location);
+      var latlng = place.geometry.location;
       bounds.extend(place.geometry.location);
       marker.setPosition(place.geometry.location);
+      let temp = JSON.stringify(latlng);
+      let coordsObj = JSON.parse(temp);
+      let lat1 = coordsObj.lat;
+      let lon1 = coordsObj.lng;
+
+      let url = `https://api.spotcrime.com/crimes.json?&lat=${lat1}&lon=${lon1}&radius=${radius}&key=${key}`;
+
+      fetchJson(url);
+      
   }
   map.fitBounds(bounds);
-  map.setZoom(50);
+  map.setZoom(10);
 });
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+// ==========================================================================================================================================
+
+
 
 // ==========================================================================================================================================
 // ==========================================================================================================================================
