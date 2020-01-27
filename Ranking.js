@@ -118,9 +118,6 @@ function crimeStats() {
     let stat = crimeCount[i];
     elements[i].children[0].textContent = stat;
     let charList = elements[i].children[1].textContent.split('');
-    if(stat > 1 && charList[charList.length - 1] != 's') {
-      elements[i].children[1].textContent = elements[i].children[1].textContent + "s";
-    }
   }
 }
 // ==========================================================================================================================================
