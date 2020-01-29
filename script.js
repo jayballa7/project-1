@@ -2,12 +2,13 @@
 // ==========================================================================================================================================
 // ==========================================================================================================================================
 // This code fetches the JSON from the API
+initMap();
 const key = 'This-api-key-is-for-commercial-use-exclusively.Only-entities-with-a-Spotcrime-contract-May-use-this-key.Call-877.410.1607.';
-let lat;
+let lat = 0;
 //for the US, the longitude will always be negative
-let lon;
+let lon = 0;
 let radius = 100; // this is in miles
-async function fetchJson(newUrl) {
+function fetchJson(newUrl) {
   $.ajax({
     type: 'GET',
     url: newUrl,
@@ -35,7 +36,8 @@ async function fetchJson(newUrl) {
 // fetchJson();
 
 
-function makeMap(lat1, lon1) {
+function makeMap(lat1, lon1, url) {
+  fetchJson(url);
   var pos = {
     lat: lat1,
     lng: lon1
@@ -59,7 +61,7 @@ function makeMap(lat1, lon1) {
         }
       });
       map.setCenter(pos);
-      map.setZoom(5);
+      map.setZoom(10);
     }
 // ==========================================================================================================================================
 // ==========================================================================================================================================
@@ -142,8 +144,7 @@ var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsea
 var box = document.getElementById("mapsearch");
 // google.maps.event.addListener("click", function() {
 searchButton.addEventListener("click", function(event) {
-  // event.preventDefault();
-  console.log("ballsack");
+  event.preventDefault();
   var places = searchBox.getPlaces();
   var bounds = new google.maps.LatLngBounds();
 
@@ -162,9 +163,7 @@ searchButton.addEventListener("click", function(event) {
     removeMarkers();
   }
   // start the whole process of fetching json, and moving map, adding markers, etc.
-  makeMap(lat1, lon1);
-  fetchJson(url);
-
-  map.fitBounds(bounds);
-  map.setZoom(10);
+  dataCashe = [];
+  sortedData = [];
+  makeMap(lat1, lon1, url);
 });

@@ -60,7 +60,7 @@ function rankOffences(data) {
   for (var i = 0; i < crimes.length; i++) {
     for (var j = 0; j < data.length; j++) {
       if (data[j].type.toLowerCase() === crimes[i]) {
-        sortedData.push(data[j])
+        sortedData.push(data[j]);
         crimeCount[i]++;
       }
     }
@@ -141,7 +141,6 @@ function crimeStats() {
       }
       elements[i].children[1].textContent = word;
     }
-
   }
 }
 // ==========================================================================================================================================
@@ -172,4 +171,6 @@ function removeMarkers() {
     element.setMap(null);
   });
 }
+
+
 
