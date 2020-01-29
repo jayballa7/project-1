@@ -4,7 +4,7 @@
 // ranks threats based on severity
 let crime_list = document.querySelector("#crime_list");
 let input = document.querySelector("#input");
-let inputBtn = document.querySelector(".btn");
+let inputBtn = document.querySelector("#btn");
 let prev = document.querySelector("#prev");
 let pageBtn = document.querySelector("#page");
 let next = document.querySelector("#next");
