@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+>>>>>>> 5e2443011fa881bbd43fb9eefb82e12ce4b8dd01
 <html class="no-js" lang="en">
 <head>
 <meta charset="utf-8" />
@@ -8,7 +11,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <div class="top-bar">
 <div class="top-bar-left">
 <ul class="menu">
@@ -26,138 +28,105 @@
 </ul>
 </div>
 </div>
-
 <!--Heading-->
 <div class="callout large">
 <div class="row column text-center">
-<h1>Survival App</h1>
-<p class="lead">Crime Watch</p>
+<h1>Crime Radar</h1>
+<!-- <p class="lead">Crime Radar</p> -->
 </div>
 </div>
-
 <!--Map-->
     <div class="row">
         <div class="medium-6 columns medium-push-6">
+<<<<<<< HEAD
             <h2 class = "font">Location of Crime</h2>
         <!--location search bar-->
 
         <input type = "text" id = "mapsearch">
         <div id= "map-canvas"></div>
         <!-- <button class="button"><i class="fa fa-search"></i>Search</button> -->
+=======
+            <!-- this div contains the map, title and search boxes -->
+            <div id="map-div">
+
+                <h2 class = "font">Location of Crime</h2>
+                <!--location search bar-->
+
+                <form class="form-inline">
+                    <input type="text" id="mapsearch" placeholder="Enter Location" name="location">
+                    <input type="number" id="miles" placeholder="miles away" name="distance" min="0">
+                </form>
+
+                <div id= "map-canvas"></div>
+                
+            </div>
+>>>>>>> 5e2443011fa881bbd43fb9eefb82e12ce4b8dd01
                   
         </div>
         <!--List-->
         <div class="medium-6 columns medium-pull-6">
-            <h2 class = "font">Nearby Dangers</h2>
-            <table class="responsive-card-table unstriped">
-                <thead>
-                <tr class = "font">
-                    <th>Rank</th>
-                    <th>Crime Type</th>
-                    <th>Incident</th>
-                    <th>Location</th>
-                </tr>
-                </thead>
-            <tbody class = "font">
-                <tr>
-                     <td data-label="Rank">1</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                <tr>
-                    <td data-label="Rank">2</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                <tr>
-                    <td data-label="Rank">3</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                <tr>
-                    <td data-label="Rank">4</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                    <td data-label="Rank">5</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                    <td data-label="Rank">6</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                    <td data-label="Rank">7</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                    <td data-label="Rank">8</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                    <td data-label="Rank">9</td>
-                    <td data-label="Crime Type"></td>
-                    <td data-label="Incident"></td>
-                    <td data-label="Location"></td>
-                </tr>
-                <td data-label="Rank">10</td>
-                <td data-label="Crime Type"></td>
-                <td data-label="Incident"></td>
-                <td data-label="Location"></td>
-                </tbody>
-            </table>
+            <!-- this div contains the crime list, refresh page button and next page buttons -->
+            <div id="crime-list">
+                <!-- title and refresh buttons -->
+                <h2 class = "font">Nearby Crimes</h2>
+                <div id="results">
+                    <input id="input" type="number" step="5" min="0" max="50" value="20">
+                    <button class="btn">Refresh</button>
+                </div>
+                <!-- crime list -->
+                <table class="responsive-card-table unstriped">
+                    <thead>
+                    <tr class = "font">
+                        <th>#</th>
+                        <th>Crime Type</th>
+                        <th>Date and Time</th>
+                        <th>Location</th>
+                        <th>More Information</th>
+                    </tr>
+                    </thead>
+                    <tbody class = "font" id="crime_list">
+                        <!-- where the crime reports are placed -->
+                    </tbody>
+                </table>
+                <!-- next and previous page buttons -->
+                <div>
+                    <button id="prev">Prev</button>
+                    <input id="page" type="number" value="0" min="0">
+                    <button id="next">Next</button>
+                </div>
+
+            </div>
   
-  
-</div>
-</div>
-<hr>
-<div class="row column">
-<ul class="vertical medium-horizontal menu expanded text-center">
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-<li><a href="#"><div class="stat">0</div><span>Stats</span></a></li>
-</ul>
-</div>
-<hr>
-<div class="row column">
-<h3>Articles</h3>
-</div>
-<div class="row medium-up-3 large-up-4">
-<div class="column">
-<img class="thumbnail" src="https://placehold.it/550x550">
-</div>
-<div class="column">
-<img class="thumbnail" src="https://placehold.it/550x550">
-</div>
-<div class="column">
-<img class="thumbnail" src="https://placehold.it/550x550">
-</div>
-</div>
-</div>
-<hr>
-<div class="row column">
-<ul class="menu">
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-</ul>
+        </div>
+        
+
 </div>
 
+
+<hr>
+<div class="row column">
+<ul class="vertical medium-horizontal menu expanded text-center" id="crimeStats">
+    <li><div class="shootingStat">0</div><span>Shooting</span></li>
+    <li><div class="assaultStat">0</div><span>Assault</span></li>
+    <li><div class="robberyStat">0</div><span>Robbery</span></li>
+    <li><div class="arsonStat">0</div><span>Arson</span></li>
+    <li><div class="burglaryStat">0</div><span>Burglary</span></li>
+    <li><div class="theftStat">0</div><span>Theft</span></li>
+    <li><div class="arrestStat">0</div><span>Arrest</span></li>
+    <li><div class="vandalismStat">0</div><span>Vandalism</span></li>
+    <li><div class="otherStat">0</div><span>Other</span></li>
+</ul>
+</div>
+<hr>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXueNr9V_cKThj6rtWzPr4kK-gBPLLk0k&libraries=places"></script>
-<script src="script.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<<<<<<< HEAD
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXueNr9V_cKThj6rtWzPr4kK-gBPLLk0k&libraries=places"></script>
+=======
+<script src="Ranking.js"></script>
+>>>>>>> 5e2443011fa881bbd43fb9eefb82e12ce4b8dd01
+<script src="script.js"></script>
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
 </body>
 </html>
-
