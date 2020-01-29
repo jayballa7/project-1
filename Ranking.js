@@ -93,6 +93,7 @@ function createRow(count, data, j) {
     ref.setAttribute('href', data[j].link);
     ref.setAttribute('target', '_blank');
     ref.textContent = "link";
+    ref.setAttribute("class", 'link');
     let streetLink=document.createElement("a");
     streetLink.setAttribute("href","https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+data[j].lat+","+data[j].lon+"&heading=151.78&pitch=-0.76&key=AIzaSyCll1M9CtGGw4nJ6ryIvd18emOJUyf5EWc");
     streetLink.setAttribute("target","_blank")
@@ -111,7 +112,7 @@ function createRow(count, data, j) {
     newRow.appendChild(city);
     newRow.appendChild(link);
     crime_list.appendChild(newRow);
-    addMarker(data[j].lat, data[j].lon, data[j].type);
+    addMarker(data[j].lat, data[j].lon, data[j].type, data[j].link);
 }
 
 
@@ -149,16 +150,22 @@ function crimeStats() {
 // ==========================================================================================================================================
 // ==========================================================================================================================================
 // adds a marker of each crime to the map
-function addMarker(lat, lon, type) {
-  var marker = new google.maps.Marker({
+function addMarker(lat, lon, type, link) {
+  let marker = new google.maps.Marker({
     position: {
         lat: lat,
-        lng: lon
+        lng: lon,
+        url: link
     },
     map:map,
     draggable: false,
     title: type
   });
+  
+  google.maps.event.addListener(marker, 'click', function() {
+   window.location.href = link;
+  });
+
   markers.push(marker);
 }
 
@@ -167,3 +174,4 @@ function removeMarkers() {
     element.setMap(null);
   });
 }
+
