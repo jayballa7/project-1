@@ -1,3 +1,5 @@
+var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsearch"));
+var box = document.getElementById("mapsearch");
 window.onload = (event) => {
   initMap();
 };
@@ -42,12 +44,12 @@ $.ajax({
 // This code should loap the map onto the page
 var map, infoWindow;
 function initMap() {
-  var startingLatLon = {lat: 40, lng: -122};
-  map = new google.maps.Map(document.getElementById("map-canvas"), {
-  center:  startingLatLon,
-  zoom: 10
-});
-infoWindow = new google.maps.InfoWindow;
+    var startingLatLon = {lat: 40, lng: -122};
+    map = new google.maps.Map(document.getElementById("map-canvas"), {
+    center:  startingLatLon,
+    zoom: 10
+  });
+  infoWindow = new google.maps.InfoWindow;
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -110,10 +112,11 @@ center: {
 },
 radius: 100000
 });
-var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsearch"));
+
 var search=new google.maps.places.SearchBox(document.getElementById("search"));
 //google.maps.event.addListener(searchBox, "places_changed", function() {
 google.maps.event.addListener(search, "places_changed", function() {
+  e.preventDefault();
 var places = searchBox.getPlaces();
 var bounds = new google.maps.LatLngBounds();
 var i, place;
