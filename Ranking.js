@@ -23,6 +23,7 @@ let sortedData = [];
 pageBtn.value = page + 1;
 
 inputBtn.addEventListener('click', function() {
+  removeMarkers();
   listLimit = input.value;
   crime_list.innerHTML = '';
   rankOffences(dataCashe);
@@ -30,6 +31,7 @@ inputBtn.addEventListener('click', function() {
 
 // previous page button
 prev.addEventListener('click', function() {
+    removeMarkers();
     if(page > 0) {
       page--;
       pageBtn.value = page + 1;
@@ -41,7 +43,7 @@ prev.addEventListener('click', function() {
 
 // next page button
 next.addEventListener('click', function() {
-    
+    removeMarkers();
     if (((page + 1) * listLimit) < dataCashe.length) {
         page++;
         pageBtn.value = page + 1;
@@ -129,19 +131,15 @@ function crimeStats() {
     let stat = crimeCount[i];
     elements[i].children[0].textContent = stat;
     let charList = elements[i].children[1].textContent.split('');
-    if(stat > 1 && charList[charList.length - 1] != 's') {
+    if(stat != 1 && charList[charList.length - 1] != 's') {
       elements[i].children[1].textContent = elements[i].children[1].textContent + "s";
     }
-    if(stat <= 1 && stat != 0 && charList[charList.length - 1] == 's') {
+    if(stat == 1 && charList[charList.length - 1] == 's') {
       let word = '';
       for (var j = 0; j < charList.length - 1; j++) {
         word+= charList[j];
       }
        elements[i].children[1].textContent = word;
-    }
-
-    if(stat == 0 && charList[charList.length - 1] != 's') {
-      elements[i].children[1].textContent = elements[i].children[1].textContent + "s";
     }
 
   }
@@ -163,7 +161,7 @@ function addMarker(lat, lon, type, link) {
   });
   
   google.maps.event.addListener(marker, 'click', function() {
-   window.location.href = link;
+   window.open(link);
   });
 
   markers.push(marker);
