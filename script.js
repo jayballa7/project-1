@@ -1,6 +1,3 @@
-// window.onload = (event) => {
-initMap();
-// };
 // ==========================================================================================================================================
 // ==========================================================================================================================================
 // ==========================================================================================================================================
@@ -27,7 +24,6 @@ async function fetchJson(newUrl) {
       'Access-Control-Allow-Headers': 'application/json',
     },
     success: function (data) {
-      console.log("lets go");
       rankOffences(data.crimes);
     },
     error: function (error) {
@@ -37,6 +33,34 @@ async function fetchJson(newUrl) {
 }
 //fetches the json, and updates the list
 // fetchJson();
+
+
+function makeMap(lat1, lon1) {
+  var pos = {
+    lat: lat1,
+    lng: lon1
+  };
+  map = new google.maps.Map(document.getElementById("map-canvas"), {
+    center: pos,
+    zoom: 5
+  });
+  infoWindow = new google.maps.InfoWindow;
+  // Try HTML5 geolocation.
+      infoWindow.setPosition(pos);
+      var firstmarker = new google.maps.Marker({
+        position: {
+          lat: lat1,
+          lng: lon1
+        },
+        map: map,
+        draggable: false,
+        icon: {
+          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        }
+      });
+      map.setCenter(pos);
+      map.setZoom(5);
+    }
 // ==========================================================================================================================================
 // ==========================================================================================================================================
 // ==========================================================================================================================================
@@ -116,9 +140,10 @@ var search = new google.maps.places.SearchBox(document.getElementById("search"))
 var searchButton = document.getElementById("search-button");
 var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsearch"));
 var box = document.getElementById("mapsearch");
-//google.maps.event.addListener(searchBox, "places_changed", function() {
+// google.maps.event.addListener("click", function() {
 searchButton.addEventListener("click", function(event) {
-  event.preventDefault();
+  // event.preventDefault();
+  console.log("ballsack");
   var places = searchBox.getPlaces();
   var bounds = new google.maps.LatLngBounds();
 
@@ -132,12 +157,12 @@ searchButton.addEventListener("click", function(event) {
   let lon1 = coordsObj.lng;
   // constructs url to fetch json
   let url = `https://api.spotcrime.com/crimes.json?&lat=${lat1}&lon=${lon1}&radius=${radius}&key=${key}`;
-  console.log("lets go");
   // removes previous markers
   if (markers.length > 0) {
     removeMarkers();
   }
   // start the whole process of fetching json, and moving map, adding markers, etc.
+  makeMap(lat1, lon1);
   fetchJson(url);
 
   map.fitBounds(bounds);
