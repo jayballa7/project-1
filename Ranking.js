@@ -9,6 +9,9 @@ let prev = document.querySelector("#prev");
 let pageBtn = document.querySelector("#page");
 let next = document.querySelector("#next");
 
+// markers array
+var markers = [];
+
 // ranking variables
 let crimes = ['shooting', 'assault', 'robbery', 'arson', 'burglary', 'theft', 'arrest', 'vandalism', 'other'];
 let crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -31,7 +34,7 @@ prev.addEventListener('click', function() {
       page--;
       pageBtn.value = page + 1;
       crime_list.innerHTML = '';
-      rankOffences(dataCashe);
+      CreateTable(sortedData);
     }
     
 })
@@ -43,7 +46,7 @@ next.addEventListener('click', function() {
         page++;
         pageBtn.value = page + 1;
         crime_list.innerHTML = '';
-        rankOffences(dataCashe);
+        CreateTable(sortedData);
     }
     
 })
@@ -62,7 +65,6 @@ function rankOffences(data) {
     }
     // updates the crime summary stats at the bottom of the page
     crimeStats();
-    console.log(sortedData);
     CreateTable(sortedData)
 }
 
@@ -73,7 +75,6 @@ function CreateTable(data) {
   for(var j = page * listLimit; j < data.length; j++) {
     if (listLimit == -1 || listLimit > count) {
       count++;
-            
       createRow(count, data, j);
     }
   }
@@ -151,5 +152,12 @@ function addMarker(lat, lon, type) {
     map:map,
     draggable: false,
     title: type
+  });
+  markers.push(marker);
+}
+
+function removeMarkers() {
+  markers.forEach(element => {
+    element.setMap(null);
   });
 }
