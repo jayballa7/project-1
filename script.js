@@ -55,6 +55,9 @@ infoWindow = new google.maps.InfoWindow;
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
+            let url = `https://api.spotcrime.com/crimes.json?&lat=${pos.lat}&lon=${pos.lng}&radius=5&key=${key}`;
+            // start the whole process of fetching json, and moving map, adding markers, etc.
+            fetchJson(url);
             infoWindow.setPosition(pos);
 var firstmarker = new google.maps.Marker({
   position: {
