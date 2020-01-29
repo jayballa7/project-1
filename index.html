@@ -32,60 +32,61 @@
 </div>
 </div>
 <!--Map-->
-    <div class="row">
-        <div class="medium-6 columns medium-push-6">
-            <!-- this div contains the map, title and search boxes -->
-            <div id="map-div">
+<div class="row">
+<div class="medium-6 columns medium-push-6">
+<!-- this div contains the map, title and search boxes -->
+<div id="map-div">
 
-                <h2 class = "font">Location of Crime</h2>
-                <!--location search bar-->
+<h2 class = "font">Location of Crime</h2>
+<!--location search bar-->
 
-                <form class="form-inline">
-                    <input type="text" id="mapsearch" placeholder="Enter Location" name="location">
-                    <input type="number" id="miles" placeholder="miles away" name="distance" min="0">
-                </form>
+<form class="form-inline">
+<input type="text" id="mapsearch" placeholder="Enter Location" name="location">
+<input type="number" id="miles" placeholder="miles away" name="distance" min="0">
+<button class="btn" id="search">Search</button>
+</form>
 
-                <div id= "map-canvas"></div>
-                
-            </div>
-                  
-        </div>
-        <!--List-->
-        <div class="medium-6 columns medium-pull-6">
-            <!-- this div contains the crime list, refresh page button and next page buttons -->
-            <div id="crime-list">
-                <!-- title and refresh buttons -->
-                <h2 class = "font">Nearby Crimes</h2>
-                <div id="results">
-                    <input id="input" type="number" step="5" min="0" max="50" value="50">
-                    <button class="btn">Refresh</button>
-                </div>
-                <!-- crime list -->
-                <table class="responsive-card-table unstriped">
-                    <thead>
-                    <tr class = "font">
-                        <th>#</th>
-                        <th>Crime Type</th>
-                        <th>Date and Time</th>
-                        <th>Location</th>
-                        <th>More Information</th>
-                    </tr>
-                    </thead>
-                    <tbody class = "font" id="crime_list">
-                        <!-- where the crime reports are placed -->
-                    </tbody>
-                </table>
-                <!-- next and previous page buttons -->
-                <div>
-                    <button id="prev">Prev</button>
-                    <input id="page" type="number" value="0" min="0">
-                    <button id="next">Next</button>
-                </div>
+<div id= "map-canvas"></div>
 
-            </div>
-  
-        </div>
-        
+</div>
+
+</div>
+<!--List-->
+<div class="medium-6 columns medium-pull-6">
+<!-- this div contains the crime list, refresh page button and next page buttons -->
+<div id="crime-list">
+<!-- title and refresh buttons -->
+<h2 class = "font">Nearby Crimes</h2>
+<div id="results">
+<input id="input" type="number" step="5" min="0" max="50" value="50">
+<button class="btn">Refresh</button>
+</div>
+<!-- crime list -->
+<table class="responsive-card-table unstriped">
+<thead>
+<tr class = "font">
+<th>#</th>
+<th>Crime Type</th>
+<th>Date and Time</th>
+<th>Location</th>
+<th>More Information</th>
+</tr>
+</thead>
+<tbody class = "font" id="crime_list">
+<!-- where the crime reports are placed -->
+</tbody>
+</table>
+<!-- next and previous page buttons -->
+<div>
+<button id="prev">Prev</button>
+<input id="page" type="number" value="0" min="0">
+<button id="next">Next</button>
+</div>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -93,15 +94,15 @@
 <hr>
 <div class="row column">
 <ul class="vertical medium-horizontal menu expanded text-center" id="crimeStats">
-    <li><div class="shootingStat">0</div><span>Shooting</span></li>
-    <li><div class="assaultStat">0</div><span>Assault</span></li>
-    <li><div class="robberyStat">0</div><span>Robbery</span></li>
-    <li><div class="arsonStat">0</div><span>Arson</span></li>
-    <li><div class="burglaryStat">0</div><span>Burglary</span></li>
-    <li><div class="theftStat">0</div><span>Theft</span></li>
-    <li><div class="arrestStat">0</div><span>Arrest</span></li>
-    <li><div class="vandalismStat">0</div><span>Vandalism</span></li>
-    <li><div class="otherStat">0</div><span>Other</span></li>
+<li><div class="shootingStat">0</div><span>Shooting</span></li>
+<li><div class="assaultStat">0</div><span>Assault</span></li>
+<li><div class="robberyStat">0</div><span>Robbery</span></li>
+<li><div class="arsonStat">0</div><span>Arson</span></li>
+<li><div class="burglaryStat">0</div><span>Burglary</span></li>
+<li><div class="theftStat">0</div><span>Theft</span></li>
+<li><div class="arrestStat">0</div><span>Arrest</span></li>
+<li><div class="vandalismStat">0</div><span>Vandalism</span></li>
+<li><div class="otherStat">0</div><span>Other</span></li>
 </ul>
 </div>
 <hr>

@@ -111,7 +111,9 @@ center: {
 radius: 100000
 });
 var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsearch"));
-google.maps.event.addListener(searchBox, "places_changed", function() {
+var search=new google.maps.places.SearchBox(document.getElementById("search"));
+//google.maps.event.addListener(searchBox, "places_changed", function() {
+google.maps.event.addListener(search, "places_changed", function() {
 var places = searchBox.getPlaces();
 var bounds = new google.maps.LatLngBounds();
 var i, place;
