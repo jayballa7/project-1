@@ -95,8 +95,6 @@ function createRow(count, data, j) {
     ref.textContent = "link";
     let streetLink=document.createElement("a");
     streetLink.setAttribute("href","https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+data[j].lat+","+data[j].lon+"&heading=151.78&pitch=-0.76&key=AIzaSyCll1M9CtGGw4nJ6ryIvd18emOJUyf5EWc");
-
-    //streetLink.setAttribute("href",showImage(data[j].lat,data[j].lon));
     streetLink.setAttribute("target","_blank")
     streetLink.textContent=" <<street view>>";
 
