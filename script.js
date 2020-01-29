@@ -7,7 +7,11 @@ const key = 'This-api-key-is-for-commercial-use-exclusively.Only-entities-with-a
 let lat = 0;
 //for the US, the longitude will always be negative
 let lon = 0;
-let radius = 100; // this is in miles
+let radius = 10; // this is in miles
+let milesInput = document.getElementById("miles");
+if(milesInput.value != ""){
+  radius = milesInput.value;
+}
 function fetchJson(newUrl) {
   $.ajax({
     type: 'GET',
@@ -82,7 +86,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      let url = `https://api.spotcrime.com/crimes.json?&lat=${pos.lat}&lon=${pos.lng}&radius=5&key=${key}`;
+      let url = `https://api.spotcrime.com/crimes.json?&lat=${pos.lat}&lon=${pos.lng}&radius=${radius}&key=${key}`;
       // start the whole process of fetching json, and moving map, adding markers, etc.
       fetchJson(url);
       infoWindow.setPosition(pos);
