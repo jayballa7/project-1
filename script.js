@@ -129,7 +129,9 @@ for(i = 0; place = places[i]; i++) {
     // constructs url to fetch json
     let url = `https://api.spotcrime.com/crimes.json?&lat=${lat1}&lon=${lon1}&radius=${radius}&key=${key}`;
     // removes previous markers
-    marker.setMap(null);
+    if(markers.length > 0) {
+      removeMarkers();
+    }
     // start the whole process of fetching json, and moving map, adding markers, etc.
     fetchJson(url);
 }

@@ -9,6 +9,9 @@ let prev = document.querySelector("#prev");
 let pageBtn = document.querySelector("#page");
 let next = document.querySelector("#next");
 
+// markers array
+var markers = [];
+
 // ranking variables
 let crimes = ['shooting', 'assault', 'robbery', 'arson', 'burglary', 'theft', 'arrest', 'vandalism', 'other'];
 let crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -133,5 +136,12 @@ function addMarker(lat, lon, type) {
     map:map,
     draggable: false,
     title: type
+  });
+  markers.push(marker);
+}
+
+function removeMarkers() {
+  markers.forEach(element => {
+    element.setMap(null);
   });
 }
