@@ -1,5 +1,3 @@
-var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsearch"));
-var box = document.getElementById("mapsearch");
 window.onload = (event) => {
   initMap();
 };
@@ -114,9 +112,10 @@ radius: 100000
 });
 
 var search=new google.maps.places.SearchBox(document.getElementById("search"));
+var searchBox = new google.maps.places.SearchBox(document.getElementById("mapsearch"));
+var box = document.getElementById("mapsearch");
 //google.maps.event.addListener(searchBox, "places_changed", function() {
 google.maps.event.addListener(search, "places_changed", function() {
-  e.preventDefault();
 var places = searchBox.getPlaces();
 var bounds = new google.maps.LatLngBounds();
 var i, place;
