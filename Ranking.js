@@ -15,6 +15,7 @@ let crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let listLimit = input.value;
 let page = 0;
 let dataCashe = [];
+let sortedData = [];
 
 pageBtn.value = page + 1;
 
@@ -50,49 +51,64 @@ next.addEventListener('click', function() {
 function rankOffences(data) {
   crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     crime_list.innerHTML = "";
-    let count = 0;
     dataCashe = data;
     for (var i = 0; i < crimes.length; i++) {
-      
-        
-        for(var j = page * listLimit; j < data.length; j++) {
-            if (listLimit == -1 || listLimit > count) {
-                if(data[j].type.toLowerCase() === crimes[i]) {
-                    count++;
-                    crimeCount[i]++;
-                  
-                    let newRow = document.createElement("tr");
-                    let number = document.createElement("td");
-                    let type = document.createElement("td");
-                    let code = document.createElement("td");
-                    let city = document.createElement("td");
-                    let link = document.createElement("td");
-                    let ref = document.createElement("a");
-                    ref.setAttribute('href', data[j].link);
-                    ref.setAttribute('target', '_blank');
-                    ref.textContent = "link";
-                    number.textContent = count + (page * listLimit);
-                    type.textContent = data[j].type;
-                    code.textContent = data[j].date;
-                    city.textContent = data[j].address;
-                    link.appendChild(ref);
-    
-                    newRow.appendChild(number);
-                    newRow.appendChild(type);
-                    newRow.appendChild(code);
-                    newRow.appendChild(city);
-                    newRow.appendChild(link);
-                    crime_list.appendChild(newRow);
-                    addMarker(data[j].lat, data[j].lon, data[j].type);
-                }
-            }
-            
+        for(var j = 0; j < data.length; j++) {
+            if(data[j].type.toLowerCase() === crimes[i]) {
+                sortedData.push(data[j])
+                crimeCount[i]++;    
+          }
         }
-        
     }
     // updates the crime summary stats at the bottom of the page
     crimeStats();
+    console.log(sortedData);
+    CreateTable(sortedData)
 }
+
+
+
+function CreateTable(data) {
+  let count = 0;
+  for(var j = page * listLimit; j < data.length; j++) {
+    if (listLimit == -1 || listLimit > count) {
+      count++;
+            
+      createRow(count, data, j);
+    }
+  }
+}
+
+
+
+function createRow(count, data, j) {
+    let newRow = document.createElement("tr");
+    let number = document.createElement("td");
+    let type = document.createElement("td");
+    let code = document.createElement("td");
+    let city = document.createElement("td");
+    let link = document.createElement("td");
+    let ref = document.createElement("a");
+    ref.setAttribute('href', data[j].link);
+    ref.setAttribute('target', '_blank');
+    ref.textContent = "link";
+    number.textContent = count + (page * listLimit);
+    type.textContent = data[j].type;
+    code.textContent = data[j].date;
+    city.textContent = data[j].address;
+    link.appendChild(ref);
+
+    newRow.appendChild(number);
+    newRow.appendChild(type);
+    newRow.appendChild(code);
+    newRow.appendChild(city);
+    newRow.appendChild(link);
+    crime_list.appendChild(newRow);
+    addMarker(data[j].lat, data[j].lon, data[j].type);
+}
+
+
+
 // ==========================================================================================================================================
 // ==========================================================================================================================================
 // ==========================================================================================================================================
@@ -108,6 +124,18 @@ function crimeStats() {
     if(stat > 1 && charList[charList.length - 1] != 's') {
       elements[i].children[1].textContent = elements[i].children[1].textContent + "s";
     }
+    if(stat <= 1 && stat != 0 && charList[charList.length - 1] == 's') {
+      let word = '';
+      for (var j = 0; j < charList.length - 1; j++) {
+        word+= charList[j];
+      }
+       elements[i].children[1].textContent = word;
+    }
+
+    if(stat == 0 && charList[charList.length - 1] != 's') {
+      elements[i].children[1].textContent = elements[i].children[1].textContent + "s";
+    }
+
   }
 }
 // ==========================================================================================================================================
