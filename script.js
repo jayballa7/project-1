@@ -67,7 +67,7 @@ var firstmarker = new google.maps.Marker({
   map:map,
   draggable: false,
   icon: {
-    url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png(1 kB)http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+    url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
   }
 });
             map.setCenter(pos);
@@ -94,7 +94,7 @@ var firstmarker = new google.maps.Marker({
       map:map,
       draggable: false,
       icon: {
-          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png(1 kB)http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
       }
       });
 var cityCircle = new google.maps.Circle({
