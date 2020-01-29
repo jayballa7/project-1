@@ -93,11 +93,19 @@ function createRow(count, data, j) {
     ref.setAttribute('href', data[j].link);
     ref.setAttribute('target', '_blank');
     ref.textContent = "link";
+    let streetLink=document.createElement("a");
+    streetLink.setAttribute("href","https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+data[j].lat+","+data[j].lon+"&heading=151.78&pitch=-0.76&key=AIzaSyCll1M9CtGGw4nJ6ryIvd18emOJUyf5EWc");
+
+    //streetLink.setAttribute("href",showImage(data[j].lat,data[j].lon));
+    streetLink.setAttribute("target","_blank")
+    streetLink.textContent=" <<street view>>";
+
     number.textContent = count + (page * listLimit);
     type.textContent = data[j].type;
     code.textContent = data[j].date;
     city.textContent = data[j].address;
     link.appendChild(ref);
+    link.appendChild(streetLink);
 
     newRow.appendChild(number);
     newRow.appendChild(type);
