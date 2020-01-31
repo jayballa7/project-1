@@ -23,6 +23,7 @@ let sortedData = [];
 let lastPage = page + 1;
 pageBtn.value = page + 1;
 
+// input arrow event listener
 pageIndex.addEventListener('input', function() {
 
       if (((pageBtn.value) * listLimit) > dataCashe.length) {
@@ -46,17 +47,19 @@ pageIndex.addEventListener('input', function() {
 // refresh button
 inputBtn.addEventListener('click', function() {
   page = 0;
-  page = pageBtn.value - 1;
+  pageBtn.value = 1;
   removeMarkers();
   listLimit = input.value;
   crime_list.innerHTML = '';
+  sortedData = [];
   rankOffences(dataCashe);
 });
 
 // previous page button
 prev.addEventListener('click', function() {
-    removeMarkers();
+    
     if(page > 0) {
+      removeMarkers();
       page--;
       pageBtn.value = page + 1;
       crime_list.innerHTML = '';
@@ -67,38 +70,40 @@ prev.addEventListener('click', function() {
 
 // next page button
 next.addEventListener('click', function() {
-    removeMarkers();
+    
     if (((page + 1) * listLimit) < dataCashe.length) {
+        removeMarkers();
         page++;
         pageBtn.value = page + 1;
         crime_list.innerHTML = '';
         CreateTable(sortedData);
+        
     }
     
 })
 
 function rankOffences(data) {
   crimeCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    crime_list.innerHTML = "";
-    dataCashe = data;
-    for (var i = 0; i < crimes.length; i++) {
-        for(var j = 0; j < data.length; j++) {
-            if(data[j].type.toLowerCase() === crimes[i]) {
-                sortedData.push(data[j])
-                crimeCount[i]++;    
-          }
-        }
+  crime_list.innerHTML = "";
+  dataCashe = data;
+  for (var i = 0; i < crimes.length; i++) {
+    for (var j = 0; j < data.length; j++) {
+      if (data[j].type.toLowerCase() === crimes[i]) {
+        sortedData.push(data[j]);
+        crimeCount[i]++;
+      }
     }
-    // updates the crime summary stats at the bottom of the page
-    crimeStats();
-    CreateTable(sortedData)
+  }
+  // updates the crime summary stats at the bottom of the page
+  crimeStats();
+  CreateTable(sortedData);
 }
 
 
 
 function CreateTable(data) {
   let count = 0;
-  for(var j = page * listLimit; j < data.length; j++) {
+  for (var j = page * listLimit; j < data.length; j++) {
     if (listLimit == -1 || listLimit > count) {
       count++;
       createRow(count, data, j);
@@ -151,7 +156,7 @@ function crimeStats() {
   let list = document.getElementById("crimeStats");
   let elements = list.children;
 
-  for(let i = 0; i < crimeCount.length; i++) {
+  for (let i = 0; i < crimeCount.length; i++) {
     let stat = crimeCount[i];
     elements[i].children[0].textContent = stat;
     let charList = elements[i].children[1].textContent.split('');
@@ -161,11 +166,10 @@ function crimeStats() {
     if(stat == 1 && charList[charList.length - 1] == 's') {
       let word = '';
       for (var j = 0; j < charList.length - 1; j++) {
-        word+= charList[j];
+        word += charList[j];
       }
-       elements[i].children[1].textContent = word;
+      elements[i].children[1].textContent = word;
     }
-
   }
 }
 // ==========================================================================================================================================
@@ -179,7 +183,7 @@ function addMarker(lat, lon, type, link) {
         lng: lon,
         url: link
     },
-    map:map,
+    map: map,
     draggable: false,
     title: type
   });
@@ -196,4 +200,6 @@ function removeMarkers() {
     element.setMap(null);
   });
 }
+
+
 
