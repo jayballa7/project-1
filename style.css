@@ -3,6 +3,7 @@
 
 .font {
     font-family: 'Abel', sans-serif;
+    font-weight: bold;
 }
 
 .callout {
@@ -10,8 +11,14 @@
     color: white;
     font-family: 'Abel', sans-serif;
     letter-spacing: 0.5em;
-    border: 0.5em solid black;
+    border-top: 10px solid black;
+    border-radius: 5px;
 }
+
+body {
+  background-image:url("repeated-square-dark/repeated-square-dark.png");
+}
+
 h1 {
     text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black;
 }
@@ -143,11 +150,22 @@ h1 {
     width: 100%;  
 }
 #map-div{
-  border: 2px solid gray;
+  border: 6px solid #520502;
+  border-radius: 15px;
+  margin-top: 5%;
+  margin-bottom: 5%;
   padding: 10px;
   width: 550px;
   float: none;
+  background-color: white;
+  box-shadow: 
+  0 0 0 5px hsl(0, 0%, 50%),
+  0 0 0 5px hsl(0, 0%, 60%),
+  0 0 0 10px hsl(0, 0%, 70%),
+  0 0 0 15px hsl(0, 0%, 80%),
+  0 0 0 20px hsl(0, 0%, 90%);
 }
+
 
 #results {
   width: 100px;
@@ -180,14 +198,31 @@ h1 {
 
 #crime-list{
   width: 100%;
-  border: 2px solid gray;
+  border: 6px solid #520502;
+  border-radius: 15px;
+  margin-top: 5%;
+  margin-bottom: 5%;
   padding: 10px;
   width: 550px;
+  background-color: white;
+  box-shadow: 
+  0 0 0 5px hsl(0, 0%, 50%),
+  0 0 0 5px hsl(0, 0%, 60%),
+  0 0 0 10px hsl(0, 0%, 70%),
+  0 0 0 15px hsl(0, 0%, 80%),
+  0 0 0 20px hsl(0, 0%, 90%);
+}
+
+#crimeStats {
+  color:white;
+  font-weight: bold;
 }
 
 .link {
   color: red;
 }
+
+
 @media screen and (min-width: 36em) {
   #crime-list{
     width: 100%;
