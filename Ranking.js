@@ -8,6 +8,7 @@ let inputBtn = document.querySelector("#btn");
 let prev = document.querySelector("#prev");
 let pageBtn = document.querySelector("#page");
 let next = document.querySelector("#next");
+let pageIndex = document.querySelector("#page");
 
 // markers array
 var markers = [];
@@ -19,10 +20,33 @@ let listLimit = input.value;
 let page = 0;
 let dataCashe = [];
 let sortedData = [];
-
+let lastPage = page + 1;
 pageBtn.value = page + 1;
 
+pageIndex.addEventListener('input', function() {
+
+      if (((pageBtn.value) * listLimit) > dataCashe.length) {
+        console.log("end of list " + ((pageBtn.value) * listLimit) + "  " + dataCashe.length);
+        if (dataCashe.length % listLimit == 0) {
+          console.log("% = 0");
+          pageBtn.value = dataCashe.length / listLimit;
+        } else {
+          console.log("% > 0");
+          pageBtn.value = Math.floor(dataCashe.length / listLimit) + 1;
+        }
+      }
+
+  page = pageBtn.value - 1;
+  lastPage = pageBtn.value;
+  removeMarkers();
+  crime_list.innerHTML = '';
+  CreateTable(sortedData);
+})
+
+// refresh button
 inputBtn.addEventListener('click', function() {
+  page = 0;
+  page = pageBtn.value - 1;
   removeMarkers();
   listLimit = input.value;
   crime_list.innerHTML = '';
